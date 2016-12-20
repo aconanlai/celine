@@ -6,6 +6,8 @@
 html, body {
   height: 100%;
   width: 100%;
+  overflow: hidden; 
+  font-family: serif;
   /*background: url(celine.png);*/
 }
 
@@ -23,8 +25,8 @@ html, body {
 }
 
 .nav {
-  float: right;
-  position: relative;
+  right: 0px;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -33,16 +35,48 @@ html, body {
   text-align:right;
   list-style: none;
   margin: 0 !important;
-  padding: 0 !important;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  color: #bf9450;
+  font-size:1.5em;
+  line-height:1.7em;
+  padding-right: 10px;
 }
 
 .contentpanel {
   position: relative;
   top: 50%;
   left: 50%;
+  width:60%;
+  min-width:800px;
+  height: 70%;
+  overflow-y: auto;
   transform: translate(-50%, -50%);
+  padding: 25px;
   font-size:60px;
+  border: 2px solid black;
+}
+
+.bodytext {
+  font-size: 0.5em;
+}
+
+.footer {
+  position: absolute;
+  bottom:0px;
+  background: #bf9450;
+  height: 40px;
+  width: 100%;
+}
+
+#movingtext {
+  line-height:40px;
+}
+
+#langswitcher {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
 }
