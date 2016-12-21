@@ -1,0 +1,54 @@
+{
+	"data": [
+		{
+			"title": "Current Residents French"
+		},
+		{
+			"title": "Current Residents",
+			"text": "<p>This portfolio layout might be used to showcase your latest design work, a collection of your favorite recipes or maybe something completely different? All projects are subpages of the <mark>projects</mark> page and are fetched by a snippet file called <mark>showcase.php</mark>.</p>"
+		},
+		{
+			"title": "Blog",
+			"text": "<p>Blogging with Kirby is as easy as it’s fun. This simple blog shows just a basic implementation of a blogging engine, realized with only a few lines of code. It can easily be extended with tags, categories or whatever feature you need.</p>"
+		},
+		{
+			"title": "About French",
+			"text": "<p>Céline Bureau est une résidence artistique à but non-lucratif basée à Montréal visant à provoquer des échanges entre artistes locaux et internationaux d’âges, d’expériences, de cultures et de médiums divers. La résidence offrira aux participants des studios partagés pour approfondir leurs recherches et pratiques et développer leurs idées aux côté d’autres artistes. Céline Bureau a comme mission de soutenir des individus et des collectifs de différents milieux dans l’espoir de provoquer un mélange constructif de pratiques artistiques.</p>"
+		},
+		{
+			"title": "About English",
+			"text": "<p>Céline Bureau is a non-profit artist residency in Montreal which fosters exchanges between local, national and international artists across a variety of ages and experience, medium and culture. The residency will provide a shared workspace to research and develop ideas / practices alongside other artists. Céline Bureau aims to support individuals and collectives from different backgrounds, cultures, and identities in hopes of bolster a constructive mix of art practices.</p>"
+		},
+		{
+			"title": "Apply English",
+			"text": "<p>Accepted applicants will have access to a shared office and studio spaces as well as a kitchen, a living room, two bathrooms. Céline Bureau can also provide housing accommodations for one of the artists.</p>\n<p>In addition to the offered space, we offer:</p>\n<p>·   Photographic equipment, white backdrop and technical help using it.<br />\n·   Large format, digital and film cameras, flatbed scanner, 24x30 Hot-Mounting Press.<br />\n·   Silkscreen exposing and printing equipment.<br />\n·   Computer with Adobe suite, Arduino and high-speed Internet access. *<br />\n·   Hammer, Drill, Screwdrivers, Chisels, Self-Adhesive Cut-Mats, Electric Palm-Sander, clamps, Jig-Saw, Scroll Saw, etc.<br />\n·   A green screen.<br />\n·   Garage space for messier production methods</p>\n<p>To meet the artists’ other needs and requirements, we will solicit other technical resources in the area. We are also located in the vicinity of 3 hardware stores, a wood shop and an audio-visual rental center.</p>\n<p>*Artists who wish to make intensive and continuous computer work should bring their own computer.</p>"
+		},
+		{
+			"title": "Apply French",
+			"text": "<p>Les artistes acceptés auront accès à un bureau et des studios partagés ainsi qu’à une cuisine, un salon et deux sales de bain. Céline Bureau peut aussi loger gratuitement l’un des résidents.</p>\n<p>En plus des studios offerts, nos offrons :</p>\n<p>·   De l’équipement photographique, un rouleau d’arrière plan blanc et l’aide pour les utiliser.<br />\n·   Des caméras digitales, film et grand-format, un scanner à plat, une presse à chaud 24x30.<br />\n·   De l’équipement de sérigraphie (exposition et impression)<br />\n·   Un ordinateur avec la série Adobe, Arduino et internet haute-vitesse *<br />\n·   Marteau, perceuse, tourne-vis, burins, table à découper, sableuse électrique, pinces, scie sauteuse, scie ronde, etc.<br />\n·   Un écran vert.<br />\n·   Un garage pour les méthodes de productions plus salissantes.</p>\n<p>*Les artistes qui prévoient utiliser de manière intensive et continuelle un ordinateur devraient apporter le leur.</p>"
+		},
+		{
+			"title": "Contact"
+		},
+		{
+			"title": "Writing French"
+		},
+		{
+			"title": "Writing"
+		},
+		{
+			"title": "Links",
+			"text": "<p><a href=\"http://localhost:8888/www.google.com\">google</a> <a href=\"http://shane.nfshost.com/\">shane</a></p>"
+		},
+		{
+			"title": "api"
+		},
+		{
+			"title": "Error"
+		},
+		{
+			"title": "Home"
+		}
+	],
+	"params": {}
+}

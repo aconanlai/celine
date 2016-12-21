@@ -10,6 +10,15 @@ class App extends Component {
     super(props);
     this.state = {
       selectedContent: '',
+      residents: '',
+      residentsFr: '',
+      about: '',
+      aboutFr: '',
+      apply: '',
+      applyFr: '',
+      writing: '',
+      writingFr: '',
+      contact: '',
     };
     this.handleNav = this.handleNav.bind(this);
   }
@@ -17,6 +26,28 @@ class App extends Component {
   handleNav(content) {
     this.setState({
       selectedContent: content,
+    });
+  }
+
+  componentDidMount() {
+    fetch('data.json').then((response) => {
+      return response.json();
+    }).then((json) => {
+      const data = json.data
+      let selectedContent= '',
+      residents= '',
+      residentsFr= '',
+      about= '',
+      aboutFr= '',
+      apply= '',
+      applyFr= '',
+      writing= '',
+      writingFr= '',
+      contact= '';
+      
+      for (let i = 0; i < data.length ; i ++) {
+        console.log(data[i].title);
+      }
     });
   }
 
