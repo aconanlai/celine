@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedLang: 'eng',
       selectedContent: '',
       residents: '',
       residentsFr: '',
@@ -22,28 +23,25 @@ class App extends Component {
       links: '',
     };
     this.handleNav = this.handleNav.bind(this);
+    this.handleLang = this.handleLang.bind(this);
   }
 
   componentDidMount() {
     fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
-      const data = json.data
-      console.log(data);
-      let selectedContent= '',
-        residents = '',
-        residentsFr = '',
-        about = '',
-        aboutFr = '',
-        apply = '',
-        applyFr = '',
-        writing = '',
-        writingFr = '',
-        links = '',
-        contact = '';
-      console.log(data.length);
+      const data = json.data;
+      let residents = '';
+      let residentsFr = '';
+      let about = '';
+      let aboutFr = '';
+      let apply = '';
+      let applyFr = '';
+      let writing = '';
+      let writingFr = '';
+      let links = '';
+      let contact = '';
       for (let i = 0; i < data.length; i++) {
-        console.log(data[i].text);
         switch (data[i].title) {
           case 'Current Residents French':
             residentsFr = data[i].text;
@@ -100,15 +98,21 @@ class App extends Component {
     });
   }
 
+  handleLang(lang) {
+    this.setState({
+      selectedLang: lang,
+    });
+  }
+
   render() {
     const bg = Math.floor((Math.random() * 6) + 1);
-    const content = (this.state.selectedContent === '') ? null : <ContentPanel selectedContent={this.state.selectedContent} />;
+    const content = (this.state.selectedContent === '') ? null : <ContentPanel {...this.state} />;
     return (
       <div style={{ backgroundImage: `url(bg${bg}.jpg)` }} className="App">
         {content}
-        <Nav handleNav={this.handleNav} />
-        <Footer />
-        <LangSwitcher />
+        <Nav handleNav={this.handleNav} selectedContent={this.state.selectedContent} />
+        <Footer links={this.state.links} />
+        <LangSwitcher handleLang={this.handleLang} selectedLang={this.state.selectedLang} />
       </div>
     );
   }

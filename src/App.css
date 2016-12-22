@@ -39,9 +39,16 @@ html, body {
   flex-direction: column;
   justify-content: space-around;
   color: #bf9450;
-  font-size:1.5em;
   line-height:1.7em;
   padding-right: 10px;
+}
+
+.navlink {
+  font-size:1.5em;
+}
+
+.navlink.selected {
+  text-decoration: underline;
 }
 
 .contentpanel {
@@ -75,8 +82,7 @@ html, body {
 
 .contenttext {
   height:80%;
-
-  font-size:0.65em;
+  font-size:0.45em;
   overflow-y: auto;
 }
 
@@ -90,6 +96,11 @@ html, body {
   background: #bf9450;
   height: 40px;
   width: 100%;
+  font-family: sans-serif;
+}
+
+.footer p a {
+  color: black;
 }
 
 #movingtext {
@@ -101,4 +112,8 @@ html, body {
   top: 0px;
   right: 0px;
   padding: 10px;
+}
+
+.lang.selected {
+  text-decoration: underline;
 }

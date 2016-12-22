@@ -6,8 +6,10 @@ class Apply extends React.Component {
   }
 
   render() {
+    const text = (this.props.selectedLang === 'eng') ? this.props.apply : this.props.applyFr;
     return (
-      <span>Apply</span>
+      <div dangerouslySetInnerHTML={{ __html: text }}>
+      </div>
     );
   }
 }

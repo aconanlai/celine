@@ -6,8 +6,10 @@ class Residents extends React.Component {
   }
 
   render() {
+    const text = (this.props.selectedLang === 'eng') ? this.props.residents : this.props.residentsFr;
     return (
-      <span>Residents</span>
+      <div dangerouslySetInnerHTML={{ __html: text }}>
+      </div>
     );
   }
 }

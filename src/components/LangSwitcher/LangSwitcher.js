@@ -3,9 +3,10 @@ import React from 'react';
 class LangSwitcher extends React.Component {
   render() {
     return (
-        <div id="langswitcher">
-          ENG / FR
-        </div>
+      <div id="langswitcher">
+        <span className={(this.props.selectedLang === 'eng') ? 'lang selected' : 'lang'} onClick={() => this.props.handleLang('eng')}>ENG</span> 
+        / <span className={(this.props.selectedLang === 'fr') ? 'lang selected' : 'lang'} onClick={() => this.props.handleLang('fr')}>FR</span>
+      </div>
     );
   }
 }

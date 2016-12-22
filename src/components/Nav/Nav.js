@@ -15,7 +15,7 @@ class Nav extends Component {
           {links.map((link, i) => {
             return (
               <li key={i}>
-                <span onClick={() => this.props.handleNav(link.component)}>{link.name}</span>
+                <span className={(this.props.selectedContent === link.component) ? 'navlink selected' : 'navlink'} onClick={() => this.props.handleNav(link.component)}>{link.name}</span>
               </li>
             );
           })}
