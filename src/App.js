@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       selectedLang: 'eng',
+      selectedBg: '',
       selectedContent: '',
       residents: '',
       residentsFr: '',
@@ -27,6 +28,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const bg = Math.floor((Math.random() * 6) + 1);
+    this.setState({
+      selectedBg: `url(bg${bg}.jpg)`,
+    });
     fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
@@ -105,10 +110,10 @@ class App extends Component {
   }
 
   render() {
-    const bg = Math.floor((Math.random() * 6) + 1);
+    
     const content = (this.state.selectedContent === '') ? null : <ContentPanel {...this.state} />;
     return (
-      <div style={{ backgroundImage: `url(bg${bg}.jpg)` }} className="App">
+      <div style={{ backgroundImage: this.state.selectedBg }} className="App">
         {content}
         <Nav handleNav={this.handleNav} selectedContent={this.state.selectedContent} />
         <Footer links={this.state.links} />
