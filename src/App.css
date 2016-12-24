@@ -13,7 +13,7 @@ html, body {
 
 img {
   width: 80%;
-  border: 1px #bf9450 solid;
+  border: 1px solid #bf9450;
 }
 
 #root {

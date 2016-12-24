@@ -21,6 +21,9 @@ class App extends Component {
       writing: '',
       writingFr: '',
       contact: '',
+      contactFr: '',
+      news: '',
+      newsFr: '',
       links: '',
     };
     this.handleNav = this.handleNav.bind(this);
@@ -32,6 +35,7 @@ class App extends Component {
     this.setState({
       selectedBg: `url(bg${bg}.jpg)`,
     });
+    // fetch('cms/api').then((response) => {
     fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
@@ -46,6 +50,9 @@ class App extends Component {
       let writingFr = '';
       let links = '';
       let contact = '';
+      let contactFr = '';
+      let news = '';
+      let newsFr = '';
       for (let i = 0; i < data.length; i++) {
         switch (data[i].title) {
           case 'Current Residents French':
@@ -78,6 +85,15 @@ class App extends Component {
           case 'Contact':
             contact = data[i].text;
             break;
+          case 'Contact French':
+            contactFr = data[i].text;
+            break;
+          case 'News':
+            news = data[i].text;
+            break;
+          case 'News French':
+            newsFr = data[i].text;
+            break;
           default:
             break;
         }
@@ -92,6 +108,9 @@ class App extends Component {
         writing,
         writingFr,
         contact,
+        contactFr,
+        news,
+        newsFr,
         links,
       });
     });
