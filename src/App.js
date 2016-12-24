@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLang: 'eng',
+      selectedLang: 'en',
       selectedBg: '',
       selectedContent: '',
       residents: '',
@@ -115,7 +115,7 @@ class App extends Component {
     return (
       <div style={{ backgroundImage: this.state.selectedBg }} className="App">
         {content}
-        <Nav handleNav={this.handleNav} selectedContent={this.state.selectedContent} />
+        <Nav handleNav={this.handleNav} selectedLang={this.state.selectedLang} selectedContent={this.state.selectedContent} />
         <Footer links={this.state.links} />
         <LangSwitcher handleLang={this.handleLang} selectedLang={this.state.selectedLang} />
       </div>

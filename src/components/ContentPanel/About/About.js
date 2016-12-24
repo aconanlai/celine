@@ -6,7 +6,7 @@ class About extends React.Component {
   }
 
   render() {
-    const text = (this.props.selectedLang === 'eng') ? this.props.about : this.props.aboutFr;
+    const text = (this.props.selectedLang === 'en') ? this.props.about : this.props.aboutFr;
     return (
       <div dangerouslySetInnerHTML={{ __html: text }}>
       </div>

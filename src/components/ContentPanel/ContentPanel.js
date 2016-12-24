@@ -16,23 +16,23 @@ class ContentPanel extends React.Component {
     switch (this.props.selectedContent) {
       case 'residents':
         panelContent = <Residents {...this.props} />;
-        contentTitle = 'current residents';
+        (this.props.selectedLang === 'end') ? contentTitle = 'residents' : contentTitle = 'resident';
         break;
       case 'about':
         panelContent = <About {...this.props} />;
-        contentTitle = 'about';
+        (this.props.selectedLang === 'end') ? contentTitle = 'about' : contentTitle = 'a propos';
         break;
       case 'apply':
         panelContent = <Apply {...this.props} />;
-        contentTitle = 'apply';
+        (this.props.selectedLang === 'end') ? contentTitle = 'apply' : contentTitle = 'appliquer';
         break;
       case 'contact':
         panelContent = <Contact {...this.props} />;
-        contentTitle = 'contact';
+        (this.props.selectedLang === 'end') ? contentTitle = 'contact' : contentTitle = 'contacter';
         break;
       case 'writing':
         panelContent = <Writing {...this.props} />;
-        contentTitle = 'writing';
+        (this.props.selectedLang === 'end') ? contentTitle = 'writing' : contentTitle = 'ecriture';
         break;
       default:
         panelContent = <About {...this.props} />;

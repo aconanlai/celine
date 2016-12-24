@@ -8,7 +8,7 @@ class Writing extends React.Component {
   render() {
     const text = (this.props.selectedLang === 'eng') ? this.props.writing : this.props.writingFr;
     return (
-      <div dangerouslySetInnerHTML={{ __html: text }}>
+      <div className="writing" dangerouslySetInnerHTML={{ __html: text }}>
       </div>
     );
   }

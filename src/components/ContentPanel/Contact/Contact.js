@@ -9,7 +9,7 @@ class Contact extends React.Component {
     // const text = (this.props.selectedLang === 'eng') ? this.props.contact : this.props.contactFr;
     const text = this.props.contact;
     return (
-      <div dangerouslySetInnerHTML={{ __html: text }}>
+      <div className="contact" dangerouslySetInnerHTML={{ __html: text }}>
       </div>
     );
   }

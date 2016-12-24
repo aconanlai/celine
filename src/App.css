@@ -11,13 +11,17 @@ html, body {
   /*background: url(celine.png);*/
 }
 
+img {
+  width: 80%;
+  border: 1px #bf9450 solid;
+}
+
 #root {
   height: 100%;
   width: 100%;
 }
 
 .App {
-  text-align: center;
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
@@ -60,13 +64,14 @@ html, body {
   min-width: 500px;
   height: 70%;
   transform: translate(-50%, -50%);
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color:rgba(255, 255, 255, 0.8);
   padding: 25px;
-  font-size:60px;
+  font-size:40px;
   /*border: 2px solid black;*/
 }
 
 .contenttitlecontainer {
+  text-align: center;
   font-family: sans-serif;
   line-height:0.55em;
   height:20%;
@@ -76,18 +81,18 @@ html, body {
 .contentceline {
   font-size: 0.65em;
 }
-.contenttitle {
+.contenttitle { 
   font-size: 0.5em;
 }
 
 .contenttext {
-  height:80%;
-  font-size:0.45em;
+  height: 80%;
+  font-size: 0.45em;
   overflow-y: auto;
 }
 
-.bodytext {
-  font-size: 0.5em;
+.residents, .contact, .writing {
+  text-align: center;
 }
 
 .footer {
@@ -117,3 +122,4 @@ html, body {
 .lang.selected {
   text-decoration: underline;
 }
+
