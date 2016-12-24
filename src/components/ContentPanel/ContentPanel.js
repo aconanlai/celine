@@ -4,6 +4,7 @@ import About from './About/About';
 import Apply from './Apply/Apply';
 import Contact from './Contact/Contact';
 import Writing from './Writing/Writing';
+import News from './News/News';
 
 class ContentPanel extends React.Component {
   constructor(props) {
@@ -11,37 +12,34 @@ class ContentPanel extends React.Component {
   }
 
   render() {
-    let panelContent = '';
+    console.log(this.props.path);
     let contentTitle = '';
-    switch (this.props.selectedContent) {
+    switch (this.props.path) {
       case 'residents':
-        panelContent = <Residents {...this.props} />;
-        (this.props.selectedLang === 'end') ? contentTitle = 'residents' : contentTitle = 'resident';
+        (this.props.selectedLang === 'en') ? contentTitle = 'residents' : contentTitle = 'resident';
         break;
       case 'about':
-        panelContent = <About {...this.props} />;
-        (this.props.selectedLang === 'end') ? contentTitle = 'about' : contentTitle = 'a propos';
+        (this.props.selectedLang === 'en') ? contentTitle = 'about' : contentTitle = 'a propos';
         break;
       case 'apply':
-        panelContent = <Apply {...this.props} />;
-        (this.props.selectedLang === 'end') ? contentTitle = 'apply' : contentTitle = 'appliquer';
+        (this.props.selectedLang === 'en') ? contentTitle = 'apply' : contentTitle = 'appliquer';
         break;
       case 'contact':
-        panelContent = <Contact {...this.props} />;
-        (this.props.selectedLang === 'end') ? contentTitle = 'contact' : contentTitle = 'contacter';
+        (this.props.selectedLang === 'en') ? contentTitle = 'contact' : contentTitle = 'contacter';
         break;
       case 'writing':
-        panelContent = <Writing {...this.props} />;
-        (this.props.selectedLang === 'end') ? contentTitle = 'writing' : contentTitle = 'ecriture';
+        (this.props.selectedLang === 'en') ? contentTitle = 'writing' : contentTitle = 'ecriture';
+        break;
+      case 'news':
+        (this.props.selectedLang === 'en') ? contentTitle = 'news' : contentTitle = 'news';
         break;
       default:
-        panelContent = <About {...this.props} />;
-        contentTitle = 'about';
+        break;
     }
     return (
       <div className="contentpanel">
         <div className="contenttitlecontainer"><span className="contentceline">- Celine Bureau -</span><br /><span className="contenttitle">{contentTitle}</span></div>
-        <div className="contenttext">{panelContent}</div>
+        <div className="contenttext">{this.props.children}</div>
       </div>
     );
   }

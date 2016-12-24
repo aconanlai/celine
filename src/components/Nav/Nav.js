@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class Nav extends Component {
   render() {
@@ -8,6 +9,7 @@ class Nav extends Component {
       { name: 'contact', namefr: 'contacter', component: 'contact' },
       { name: 'residents', namefr: 'residents', component: 'residents' },
       { name: 'writing', namefr: 'ecriture', component: 'writing' },
+      { name: 'news', namefr: 'news', component: 'news' },
     ];
     return (
       <div className="nav">
@@ -15,9 +17,9 @@ class Nav extends Component {
           {links.map((link, i) => {
             return (
               <li key={i}>
-                <span className={(this.props.selectedContent === link.component) ? 'navlink selected' : 'navlink'} onClick={() => this.props.handleNav(link.component)}>
-                  {(this.props.selectedLang === 'en') ? link.name : link.namefr}
-                </span>
+               <Link to={`/${link.component}`} className="navlink" activeStyle={{ textDecoration: 'underline' }}>
+                 {(this.props.selectedLang === 'en') ? link.name : link.namefr}
+               </Link>
               </li>
             );
           })}

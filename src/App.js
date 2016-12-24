@@ -112,6 +112,7 @@ class App extends Component {
         news,
         newsFr,
         links,
+        selectedContent: this.props.location.pathname.slice(1),
       });
     });
   }
@@ -129,8 +130,24 @@ class App extends Component {
   }
 
   render() {
-    
-    const content = (this.state.selectedContent === '') ? null : <ContentPanel {...this.state} />;
+    // const content = (this.state.selectedContent === '') ? null : <ContentPanel {...this.state}>{this.props.children}</ContentPanel>;
+    const content = (this.props.location.pathname.slice(1) === '') ? null : <ContentPanel path={this.props.location.pathname.slice(1)} {...this.state}>
+      {this.props.children && React.cloneElement(this.props.children, {
+        residents: this.state.residents,
+        residentsFr: this.state.residentsFr,
+        about: this.state.about,
+        aboutFr: this.state.aboutFr,
+        apply: this.state.apply,
+        applyFr: this.state.applyFr,
+        writing: this.state.writing,
+        writingFr: this.state.writingFr,
+        contact: this.state.contact,
+        contactFr: this.state.contactFr,
+        news: this.state.news,
+        newsFr: this.state.newsFr,
+        links: this.state.links,
+        selectedLang: this.state.selectedLang,
+      })}</ContentPanel>;
     return (
       <div style={{ backgroundImage: this.state.selectedBg }} className="App">
         {content}

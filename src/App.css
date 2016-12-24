@@ -16,6 +16,14 @@ img {
   border: 1px solid #bf9450;
 }
 
+a {
+  cursor: pointer;
+}
+
+.navlink, .lang {
+  cursor: pointer;
+}
+
 #root {
   height: 100%;
   width: 100%;
@@ -42,17 +50,14 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: #bf9450;
   line-height:1.7em;
   padding-right: 10px;
 }
 
 .navlink {
-  font-size:1.5em;
-}
-
-.navlink.selected {
-  text-decoration: underline;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #bf9450;
 }
 
 .contentpanel {
