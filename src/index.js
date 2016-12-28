@@ -23,5 +23,5 @@ ReactDOM.render(
     </Route>
     <Route path="*" component={PageNotFound} />
   </Router>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
