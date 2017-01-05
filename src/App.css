@@ -50,14 +50,18 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  line-height:1.7em;
+  line-height:2.7em;
   padding-right: 10px;
 }
 
 .navlink {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-decoration: none;
-  color: #bf9450;
+  color: black;
+}
+
+.navlink:hover {
+  text-decoration: underline;
 }
 
 .contentpanel {
@@ -65,19 +69,20 @@ a {
   top: 50%;
   left: 50%;
   width: 60%;
-  max-width: 800px;
+  max-width: 750px;
   min-width: 500px;
   height: 70%;
   transform: translate(-50%, -50%);
   background-color:rgba(255, 255, 255, 0.8);
   padding: 25px;
-  font-size:40px;
+  font-size: 40px;
+  line-height: 50px;
   /*border: 2px solid black;*/
 }
 
 .contenttitlecontainer {
   text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Times New Roman, Times, serif;
   line-height:0.55em;
   height:20%;
   min-height:100px;
@@ -104,10 +109,10 @@ a {
 .footer {
   position: absolute;
   bottom:0px;
-  background: #bf9450;
   height: 40px;
   width: 100%;
-  font-family: Helvetica, Arial, sans-serif;
+  color: #E3B368;
+  font-family: Times New Roman, Times, serif;
 }
 
 .footer p a {
@@ -123,7 +128,9 @@ a {
   top: 0px;
   right: 0px;
   padding: 10px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: Times New Roman, Times, serif;
+  color: #bf9450;
 }
 
 .lang.selected {
@@ -133,11 +140,14 @@ a {
 /* Phone Styles */
 /* Portrait and Landscape */
 @media only screen 
-  and (max-device-width: 736px) { 
+  and (max-width: 736px) { 
   
   .contentpanel {
-    font-size: 1.7em;
+    /*font-size: 1.7em;*/
     min-width: 300px;
+    transform: translate(-50%, -50%);
+    background-color:rgba(255, 255, 255, 0.8);
+    padding: 25px;
   }
 
   .App {
@@ -146,7 +156,7 @@ a {
 
   .contenttitlecontainer {
     line-height:0.55em;
-    height:15%;
+    height:10%;
     min-height:70px;
   }
   
@@ -154,8 +164,9 @@ a {
 
 /* Portrait */
 @media only screen 
-  and (max-device-width: 736px) 
+  and (max-width: 736px) 
   and (orientation: portrait) { 
+
   .nav {
     top: 5px;
     position: fixed;
@@ -179,13 +190,27 @@ a {
 
   .navlink {
     font-size:1.5em;
-    padding: 5px
+    padding: 3px;
+    margin: 5px;
+  }
+
+  #langswitcher {
+    position: absolute;
+    top: auto;
+    bottom: 40px;
+    right: 0px;
+    padding: 10px;
+    font-family: Helvetica, Arial, sans-serif;
   }
 }
 
 /* Landscape */
 @media only screen 
-  and (max-device-width: 736px) 
+  and (max-width: 736px) 
   and (orientation: landscape) { 
+
+  .contentpanel {
+      top: 40%;
+    }
 
 }

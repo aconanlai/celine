@@ -16,19 +16,19 @@ class ContentPanel extends React.Component {
     let contentTitle = '';
     switch (this.props.path) {
       case 'residents':
-        (this.props.selectedLang === 'en') ? contentTitle = 'residents' : contentTitle = 'resident';
+        (this.props.selectedLang === 'en') ? contentTitle = 'residents' : contentTitle = 'résidents';
         break;
       case 'about':
-        (this.props.selectedLang === 'en') ? contentTitle = 'about' : contentTitle = 'a propos';
+        (this.props.selectedLang === 'en') ? contentTitle = 'about' : contentTitle = 'à propos';
         break;
       case 'apply':
-        (this.props.selectedLang === 'en') ? contentTitle = 'apply' : contentTitle = 'appliquer';
+        (this.props.selectedLang === 'en') ? contentTitle = 'apply' : contentTitle = 'postuler';
         break;
       case 'contact':
-        (this.props.selectedLang === 'en') ? contentTitle = 'contact' : contentTitle = 'contacter';
+        (this.props.selectedLang === 'en') ? contentTitle = 'contact' : contentTitle = 'contact';
         break;
       case 'writing':
-        (this.props.selectedLang === 'en') ? contentTitle = 'writing' : contentTitle = 'ecriture';
+        (this.props.selectedLang === 'en') ? contentTitle = 'writing' : contentTitle = 'textes';
         break;
       case 'news':
         (this.props.selectedLang === 'en') ? contentTitle = 'news' : contentTitle = 'news';
@@ -38,7 +38,7 @@ class ContentPanel extends React.Component {
     }
     return (
       <div className="contentpanel">
-        <div className="contenttitlecontainer"><span className="contentceline">- Celine Bureau -</span><br /><span className="contenttitle">{contentTitle}</span></div>
+        <div className="contenttitlecontainer"><span className="contenttitle">{contentTitle}</span></div>
         <div className="contenttext">{this.props.children}</div>
       </div>
     );

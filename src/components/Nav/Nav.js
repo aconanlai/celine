@@ -3,18 +3,15 @@ import { Link } from 'react-router';
 
 class Nav extends Component {
   render() {
-    const links = [
-      { name: 'about', namefr: 'a propos', component: 'about' },
-      { name: 'apply', namefr: 'appliquer', component: 'apply' },
-      { name: 'contact', namefr: 'contacter', component: 'contact' },
-      { name: 'residents', namefr: 'residents', component: 'residents' },
-      { name: 'writing', namefr: 'ecriture', component: 'writing' },
-      { name: 'news', namefr: 'news', component: 'news' },
-    ];
     return (
       <div className="nav">
         <ul className="navlist">
-          {links.map((link, i) => {
+          <li>
+            <Link to={'/'} className="navlink" style={{ fontWeight: 600 }}>
+              Celine Bureau
+            </Link>
+          </li>
+          {this.props.sections.map((link, i) => {
             return (
               <li key={i}>
                <Link to={`/${link.component}`} className="navlink" activeStyle={{ textDecoration: 'underline' }}>

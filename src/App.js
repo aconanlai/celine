@@ -25,6 +25,14 @@ class App extends Component {
       news: '',
       newsFr: '',
       links: '',
+      sections: [
+        { name: 'about', namefr: 'à propos', component: 'about' },
+        { name: 'apply', namefr: 'postuler', component: 'apply' },
+        { name: 'contact', namefr: 'contact', component: 'contact' },
+        { name: 'residents', namefr: 'résidents', component: 'residents' },
+        { name: 'writing', namefr: 'textes', component: 'writing' },
+        // { name: 'news', namefr: 'news', component: 'news' },
+      ],
     };
     this.handleNav = this.handleNav.bind(this);
     this.handleLang = this.handleLang.bind(this);
@@ -35,8 +43,8 @@ class App extends Component {
     this.setState({
       selectedBg: `url(bg${bg}.jpg)`,
     });
-    // fetch('cms/api').then((response) => {
-    fetch('data.json').then((response) => {
+    fetch('cms/api').then((response) => {
+    // fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
       const data = json.data;
@@ -53,6 +61,7 @@ class App extends Component {
       let contactFr = '';
       let news = '';
       let newsFr = '';
+      let sections = this.state.sections;
       for (let i = 0; i < data.length; i++) {
         switch (data[i].title) {
           case 'Current Residents French':
@@ -97,6 +106,10 @@ class App extends Component {
           default:
             break;
         }
+      }
+      // only display news on navbar if there is news to be shown
+      if (news !== '' && newsFr !== '') {
+        sections.push({ name: 'news', namefr: 'news', component: 'news' });
       }
       this.setState({
         residents,
@@ -151,7 +164,12 @@ class App extends Component {
     return (
       <div style={{ backgroundImage: this.state.selectedBg }} className="App">
         {content}
-        <Nav handleNav={this.handleNav} selectedLang={this.state.selectedLang} selectedContent={this.state.selectedContent} />
+        <Nav
+          sections={this.state.sections}
+          handleNav={this.handleNav}
+          selectedLang={this.state.selectedLang}
+          selectedContent={this.state.selectedContent}
+        />
         <Footer links={this.state.links} />
         <LangSwitcher handleLang={this.handleLang} selectedLang={this.state.selectedLang} />
       </div>
