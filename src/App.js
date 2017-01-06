@@ -11,7 +11,6 @@ class App extends Component {
     this.state = {
       selectedLang: 'en',
       selectedBg: '',
-      selectedContent: '',
       residents: '',
       residentsFr: '',
       about: '',
@@ -28,13 +27,12 @@ class App extends Component {
       sections: [
         { name: 'about', namefr: 'à propos', component: 'about' },
         { name: 'apply', namefr: 'postuler', component: 'apply' },
-        { name: 'contact', namefr: 'contact', component: 'contact' },
         { name: 'residents', namefr: 'résidents', component: 'residents' },
         { name: 'writing', namefr: 'textes', component: 'writing' },
+        { name: 'contact', namefr: 'contact', component: 'contact' },
         // { name: 'news', namefr: 'news', component: 'news' },
       ],
     };
-    this.handleNav = this.handleNav.bind(this);
     this.handleLang = this.handleLang.bind(this);
   }
 
@@ -108,7 +106,8 @@ class App extends Component {
         }
       }
       // only display news on navbar if there is news to be shown
-      if (news !== '' && newsFr !== '') {
+      if (news && newsFr) {
+        console.log('pushing');
         sections.push({ name: 'news', namefr: 'news', component: 'news' });
       }
       this.setState({
@@ -125,14 +124,7 @@ class App extends Component {
         news,
         newsFr,
         links,
-        selectedContent: this.props.location.pathname.slice(1),
       });
-    });
-  }
-
-  handleNav(content) {
-    this.setState({
-      selectedContent: content,
     });
   }
 
@@ -143,7 +135,6 @@ class App extends Component {
   }
 
   render() {
-    // const content = (this.state.selectedContent === '') ? null : <ContentPanel {...this.state}>{this.props.children}</ContentPanel>;
     const content = (this.props.location.pathname.slice(1) === '') ? null : <ContentPanel path={this.props.location.pathname.slice(1)} {...this.state}>
       {this.props.children && React.cloneElement(this.props.children, {
         residents: this.state.residents,
@@ -168,7 +159,6 @@ class App extends Component {
           sections={this.state.sections}
           handleNav={this.handleNav}
           selectedLang={this.state.selectedLang}
-          selectedContent={this.state.selectedContent}
         />
         <Footer links={this.state.links} />
         <LangSwitcher handleLang={this.handleLang} selectedLang={this.state.selectedLang} />

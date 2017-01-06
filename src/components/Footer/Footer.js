@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Marquee from 'react-marquee';
 
 class Footer extends React.Component {
   constructor(props) {
@@ -10,6 +8,7 @@ class Footer extends React.Component {
   }
 
   componentDidUpdate() {
+    // add target=blank to each link
     const els = document.querySelectorAll('.footer p a');
     for (let i = 0; i < els.length; i++) {
       els[i].setAttribute('target', 'blank');
@@ -29,12 +28,20 @@ class Footer extends React.Component {
   render() {
     return (
       <div className="footer">
-        <marquee ref={node => this.node = node} onMouseOver={this.stop} onMouseOut={this.start} id="movingtext" dangerouslySetInnerHTML={{ __html: this.props.links }}></marquee>
+        <marquee 
+          ref={node => this.node = node}
+          onMouseOver={this.stop}
+          onMouseOut={this.start}
+          id="movingtext"
+          dangerouslySetInnerHTML={{ __html: this.props.links }}
+        ></marquee>
       </div>
     );
   }
 }
 
-export default Footer;
+Footer.propTypes = {
+  links: React.PropTypes.string,
+};
 
-// <marquee id="movingtext" dangerouslySetInnerHTML={{ __html: this.props.links }}></marquee>
+export default Footer;

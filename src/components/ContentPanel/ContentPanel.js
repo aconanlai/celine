@@ -1,16 +1,6 @@
 import React from 'react';
-import Residents from './Residents/Residents';
-import About from './About/About';
-import Apply from './Apply/Apply';
-import Contact from './Contact/Contact';
-import Writing from './Writing/Writing';
-import News from './News/News';
 
 class ContentPanel extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     console.log(this.props.path);
     let contentTitle = '';
@@ -38,7 +28,9 @@ class ContentPanel extends React.Component {
     }
     return (
       <div className="contentpanel">
-        <div className="contenttitlecontainer"><span className="contenttitle">{contentTitle}</span></div>
+        <div className="contenttitlecontainer">
+          <span className="contenttitle">{contentTitle}</span>
+        </div>
         <div className="contenttext">{this.props.children}</div>
       </div>
     );
@@ -46,7 +38,7 @@ class ContentPanel extends React.Component {
 }
 
 ContentPanel.propTypes = {
-  selectedContent: React.PropTypes.string,
+  children: React.PropTypes.object,
 };
 
 export default ContentPanel;

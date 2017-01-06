@@ -14,9 +14,13 @@ class Nav extends Component {
           {this.props.sections.map((link, i) => {
             return (
               <li key={i}>
-               <Link to={`/${link.component}`} className="navlink" activeStyle={{ textDecoration: 'underline' }}>
-                 {(this.props.selectedLang === 'en') ? link.name : link.namefr}
-               </Link>
+                <Link
+                  to={`/${link.component}`}
+                  className="navlink"
+                  activeStyle={{ textDecoration: 'underline' }}
+                >
+                  {(this.props.selectedLang === 'en') ? link.name : link.namefr}
+                </Link>
               </li>
             );
           })}
@@ -25,5 +29,10 @@ class Nav extends Component {
     );
   }
 }
+
+Nav.propTypes = {
+  selectedLang: React.PropTypes.string,
+  sections: React.PropTypes.arrayOf(React.PropTypes.object),
+};
 
 export default Nav;

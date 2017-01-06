@@ -1,18 +1,18 @@
 import React from 'react';
 
 class Contact extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    // const text = (this.props.selectedLang === 'eng') ? this.props.contact : this.props.contactFr;
-    const text = this.props.contact;
+    const text = (this.props.selectedLang === 'eng') ? this.props.contact : this.props.contactFr;
     return (
-      <div className="contact" dangerouslySetInnerHTML={{ __html: text }}>
-      </div>
+      <div className="contact" dangerouslySetInnerHTML={{ __html: text }} />
     );
   }
 }
+
+Contact.propTypes = {
+  selectedLang: React.PropTypes.string,
+  contact: React.PropTypes.string,
+  contactFr: React.PropTypes.string,
+};
 
 export default Contact;

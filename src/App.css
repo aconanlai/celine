@@ -8,7 +8,6 @@ html, body {
   width: 100%;
   overflow: hidden; 
   font-family: serif;
-  /*background: url(celine.png);*/
 }
 
 img {
@@ -83,14 +82,12 @@ a {
 .contenttitlecontainer {
   text-align: center;
   font-family: Times New Roman, Times, serif;
+  font-weight: 600;
   line-height:0.55em;
   height:20%;
   min-height:100px;
 }
 
-.contentceline {
-  font-size: 0.65em;
-}
 .contenttitle { 
   font-size: 0.5em;
 }
@@ -111,12 +108,12 @@ a {
   bottom:0px;
   height: 40px;
   width: 100%;
-  color: #E3B368;
   font-family: Times New Roman, Times, serif;
 }
 
 .footer p a {
-  color: black;
+  color: #E3B368;
+  text-decoration: none;
 }
 
 #movingtext {
@@ -155,9 +152,17 @@ a {
   }
 
   .contenttitlecontainer {
-    line-height:0.55em;
-    height:10%;
-    min-height:70px;
+    line-height: 0.55em;
+    height: 10%;
+    min-height: 70px;
+  }
+
+  .navlist {
+    line-height: 1em;
+  }
+
+  .navlink {
+    font-size: 1em;
   }
   
 }
@@ -184,12 +189,10 @@ a {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    line-height:1.5em;
     padding-right: 0px;
   }
 
   .navlink {
-    font-size:1.5em;
     padding: 3px;
     margin: 5px;
   }

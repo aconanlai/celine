@@ -10,5 +10,10 @@ class LangSwitcher extends React.Component {
   }
 }
 
+LangSwitcher.propTypes = {
+  selectedLang: React.PropTypes.string,
+  handleLang: React.PropTypes.func,
+};
+
 export default LangSwitcher;
 
