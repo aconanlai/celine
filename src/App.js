@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DrawableCanvas from 'react-drawable-canvas';
+import DrawableCanvas from './components/Canvas/Canvas';
 import Nav from './components/Nav/Nav';
 import ContentPanel from './components/ContentPanel/ContentPanel';
 import Footer from './components/Footer/Footer';
@@ -39,8 +39,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // fetch('cms/api').then((response) => {
-    fetch('data.json').then((response) => {
+    fetch('cms/api').then((response) => {
+    // fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
       const data = json.data;
@@ -156,7 +156,14 @@ class App extends Component {
       },
       clear: false,
     };
-    let background = (this.state.canvas === false) ? <img id="logopic" src={this.state.selectedBg} /> : <div id="logocanvas"><DrawableCanvas {...options}/></div>;
+    let background;
+    if (this.state.canvas === true) {
+      background = <div id="logocanvas"><DrawableCanvas {...options}/></div>;
+    } else if (this.state.selectedBg === '') {
+      background = null;
+    } else {
+      background = <img id="logopic" src={this.state.selectedBg} />;
+    }
     const content = (this.props.location.pathname.slice(1) === '') ? null : <ContentPanel path={this.props.location.pathname.slice(1)} {...this.state}>
       {this.props.children && React.cloneElement(this.props.children, {
         residents: this.state.residents,
