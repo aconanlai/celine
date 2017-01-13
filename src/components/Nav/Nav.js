@@ -17,7 +17,7 @@ class Nav extends Component {
                 <Link
                   to={`/${link.component}`}
                   className="navlink"
-                  activeStyle={{ textDecoration: 'underline' }}
+                  activeStyle={{ borderBottom: '2px solid #bf9450' }}
                 >
                   {(this.props.selectedLang === 'en') ? link.name : link.namefr}
                 </Link>

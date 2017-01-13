@@ -10,7 +10,7 @@ html, body {
   font-family: serif;
 }
 
-img {
+.contentpanel img {
   width: 80%;
   border: 1px solid #bf9450;
 }
@@ -35,10 +35,40 @@ a {
   background-position: center center;
 }
 
+#logotext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+}
+
+#logopic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 145px;
+  height: 195px;
+  z-index: 6;
+  transform: translate(-50%, -50%);
+}
+
+#logocanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 145px;
+  height: 195px;
+  z-index: 6;
+  transform: translate(-50%, -50%);
+  border: 2px solid #bf9450;
+}
+
 .nav {
   right: 0px;
+  top: 48%;
+  z-index:9;
   position: fixed;
-  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -60,7 +90,7 @@ a {
 }
 
 .navlink:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid #bf9450;
 }
 
 .contentpanel {
@@ -71,12 +101,17 @@ a {
   max-width: 750px;
   min-width: 500px;
   height: 70%;
+  z-index: 10;
   transform: translate(-50%, -50%);
   background-color:rgba(255, 255, 255, 0.8);
   padding: 25px;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 35px;
+  line-height:22px;
   /*border: 2px solid black;*/
+}
+
+.contentpanel a {
+  color: #bf9450;
 }
 
 .contenttitlecontainer {
@@ -147,8 +182,13 @@ a {
     padding: 25px;
   }
 
-  .App {
-    background-size: 50%;
+  #logotext {
+    width: 50%;
+  }
+
+  #logopic {
+    width: 10%;
+    height: auto;
   }
 
   .contenttitlecontainer {

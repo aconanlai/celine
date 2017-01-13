@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DrawableCanvas from 'react-drawable-canvas';
 import Nav from './components/Nav/Nav';
 import ContentPanel from './components/ContentPanel/ContentPanel';
 import Footer from './components/Footer/Footer';
@@ -24,6 +25,7 @@ class App extends Component {
       news: '',
       newsFr: '',
       links: '',
+      canvas: false,
       sections: [
         { name: 'about', namefr: 'à propos', component: 'about' },
         { name: 'apply', namefr: 'postuler', component: 'apply' },
@@ -37,12 +39,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const bg = Math.floor((Math.random() * 6) + 1);
-    this.setState({
-      selectedBg: `url(bg${bg}.jpg)`,
-    });
-    fetch('cms/api').then((response) => {
-    // fetch('data.json').then((response) => {
+    // fetch('cms/api').then((response) => {
+    fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
       const data = json.data;
@@ -59,6 +57,7 @@ class App extends Component {
       let contactFr = '';
       let news = '';
       let newsFr = '';
+      let bgs = [];
       let sections = this.state.sections;
       for (let i = 0; i < data.length; i++) {
         switch (data[i].title) {
@@ -101,15 +100,21 @@ class App extends Component {
           case 'News French':
             newsFr = data[i].text;
             break;
+          case 'Backgrounds':
+            bgs = data[i].images;
+            break;
           default:
             break;
         }
       }
       // only display news on navbar if there is news to be shown
       if (news && newsFr) {
-        console.log('pushing');
         sections.push({ name: 'news', namefr: 'news', component: 'news' });
       }
+      const bg = Math.floor((Math.random() * bgs.length));
+        this.setState({
+          selectedBg: bgs[bg].url,
+        });
       this.setState({
         residents,
         residentsFr,
@@ -135,6 +140,16 @@ class App extends Component {
   }
 
   render() {
+    const canv = Math.floor((Math.random() * 2));
+    const options = {
+      brushColor: '#bf9450',
+      lineWidth: 2,
+      canvasStyle: {
+        backgroundColor: '#FFFFFF',
+      },
+      clear: false,
+    };
+    let background = (canv === 1) ? <img id="logopic" src={this.state.selectedBg} /> : <div id="logocanvas"><DrawableCanvas {...options}/></div>;
     const content = (this.props.location.pathname.slice(1) === '') ? null : <ContentPanel path={this.props.location.pathname.slice(1)} {...this.state}>
       {this.props.children && React.cloneElement(this.props.children, {
         residents: this.state.residents,
@@ -153,13 +168,15 @@ class App extends Component {
         selectedLang: this.state.selectedLang,
       })}</ContentPanel>;
     return (
-      <div style={{ backgroundImage: this.state.selectedBg }} className="App">
+      <div className="App">
         {content}
         <Nav
           sections={this.state.sections}
           handleNav={this.handleNav}
           selectedLang={this.state.selectedLang}
         />
+        {background}
+        <img id="logotext" src="bg.png" />
         <Footer links={this.state.links} />
         <LangSwitcher handleLang={this.handleLang} selectedLang={this.state.selectedLang} />
       </div>
@@ -168,3 +185,4 @@ class App extends Component {
 }
 
 export default App;
+
