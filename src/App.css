@@ -205,6 +205,12 @@ a {
     height: auto;
   }
 
+  #logocanvas {
+    position: absolute;
+    width: 10vw;
+    height: 14vw;
+  }
+
   .contenttitlecontainer {
     line-height: 0.55em;
     height: 10%;
