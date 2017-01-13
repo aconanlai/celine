@@ -41,6 +41,10 @@ a {
   left: 50%;
   z-index: 5;
   transform: translate(-50%, -50%);
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #logopic {
@@ -51,6 +55,10 @@ a {
   height: 195px;
   z-index: 6;
   transform: translate(-50%, -50%);
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #logocanvas {
@@ -62,6 +70,9 @@ a {
   z-index: 6;
   transform: translate(-50%, -50%);
   border: 2px solid #bf9450;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .nav {
@@ -70,6 +81,9 @@ a {
   z-index:9;
   position: fixed;
   transform: translateY(-50%);
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .navlist {

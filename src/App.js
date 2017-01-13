@@ -111,10 +111,9 @@ class App extends Component {
       if (news && newsFr) {
         sections.push({ name: 'news', namefr: 'news', component: 'news' });
       }
-      const bg = Math.floor((Math.random() * bgs.length));
-        this.setState({
-          selectedBg: bgs[bg].url,
-        });
+      const randomBg = Math.floor((Math.random() * bgs.length));
+      const selectedBg = bgs[randomBg].url;
+      const canvas = Math.floor((Math.random() * 4)) === 1;
       this.setState({
         residents,
         residentsFr,
@@ -129,8 +128,17 @@ class App extends Component {
         news,
         newsFr,
         links,
+        selectedBg,
+        canvas,
       });
     });
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'd') {
+        this.setState({
+          canvas: !this.state.canvas,
+        });
+      }
+    }, true);
   }
 
   handleLang(lang) {
@@ -140,7 +148,6 @@ class App extends Component {
   }
 
   render() {
-    const canv = Math.floor((Math.random() * 2));
     const options = {
       brushColor: '#bf9450',
       lineWidth: 2,
@@ -149,7 +156,7 @@ class App extends Component {
       },
       clear: false,
     };
-    let background = (canv === 1) ? <img id="logopic" src={this.state.selectedBg} /> : <div id="logocanvas"><DrawableCanvas {...options}/></div>;
+    let background = (this.state.canvas === false) ? <img id="logopic" src={this.state.selectedBg} /> : <div id="logocanvas"><DrawableCanvas {...options}/></div>;
     const content = (this.props.location.pathname.slice(1) === '') ? null : <ContentPanel path={this.props.location.pathname.slice(1)} {...this.state}>
       {this.props.children && React.cloneElement(this.props.children, {
         residents: this.state.residents,
