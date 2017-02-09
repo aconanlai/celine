@@ -32,8 +32,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // fetch('cms/api').then((response) => {
-    fetch('data.json').then((response) => {
+    fetch('cms/api').then((response) => {
+    // fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
       const data = json.data;
