@@ -26,21 +26,14 @@ class App extends Component {
       newsFr: '',
       links: '',
       canvas: false,
-      sections: [
-        { name: 'about', namefr: 'à propos', component: 'about' },
-        { name: 'apply', namefr: 'postuler', component: 'apply' },
-        { name: 'residents', namefr: 'résidents', component: 'residents' },
-        { name: 'writing', namefr: 'textes', component: 'writing' },
-        { name: 'contact', namefr: 'contact', component: 'contact' },
-        // { name: 'news', namefr: 'news', component: 'news' },
-      ],
+      sections: [],
     };
     this.handleLang = this.handleLang.bind(this);
   }
 
   componentDidMount() {
-    fetch('cms/api').then((response) => {
-    // fetch('data.json').then((response) => {
+    // fetch('cms/api').then((response) => {
+    fetch('data.json').then((response) => {
       return response.json();
     }).then((json) => {
       const data = json.data;
@@ -109,12 +102,24 @@ class App extends Component {
       }
       // only display news on navbar if there is news to be shown
       if (news && newsFr) {
-        sections.push({ name: 'news', namefr: 'news', component: 'news' });
+        sections = sections.concat([{ name: 'about', namefr: 'à propos', component: 'about' },
+        { name: 'apply', namefr: 'postuler', component: 'apply' },
+        { name: 'residents', namefr: 'résidents', component: 'residents' },
+        { name: 'writing', namefr: 'textes', component: 'writing' },
+        { name: 'contact', namefr: 'contact', component: 'contact' },
+        { name: 'news', namefr: 'news', component: 'news' }]);
+      } else {
+        sections = sections.concat([{ name: 'about', namefr: 'à propos', component: 'about' },
+        { name: 'apply', namefr: 'postuler', component: 'apply' },
+        { name: 'residents', namefr: 'résidents', component: 'residents' },
+        { name: 'writing', namefr: 'textes', component: 'writing' },
+        { name: 'contact', namefr: 'contact', component: 'contact' }]);
       }
       const randomBg = Math.floor((Math.random() * bgs.length));
       const selectedBg = bgs[randomBg].url;
       const canvas = Math.floor((Math.random() * 4)) === 1;
       this.setState({
+        sections,
         residents,
         residentsFr,
         about,
