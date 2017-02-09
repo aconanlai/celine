@@ -64,7 +64,7 @@ class App extends Component {
           case 'Current Residents French':
             residentsFr = data[i].text;
             break;
-          case 'Current Residents':
+          case 'Current Residents English':
             residents = data[i].text;
             break;
           case 'About English':
@@ -79,7 +79,7 @@ class App extends Component {
           case 'Apply French':
             applyFr = data[i].text;
             break;
-          case 'Writing':
+          case 'Writing English':
             writing = data[i].text;
             break;
           case 'Writing French':
@@ -88,13 +88,13 @@ class App extends Component {
           case 'Links':
             links = data[i].text;
             break;
-          case 'Contact':
+          case 'Contact English':
             contact = data[i].text;
             break;
           case 'Contact French':
             contactFr = data[i].text;
             break;
-          case 'News':
+          case 'News English':
             news = data[i].text;
             break;
           case 'News French':
